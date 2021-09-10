@@ -22,3 +22,13 @@ same time?*
 The child and parent processes can both access the file descriptor.
 When writing concurrently, the process that began writing second waits
 for the other process to finish before doing its own write.
+
+---
+
+*Write another program using fork(). The child process should
+print “hello”; the parent process should print “goodbye”. You should
+try to ensure that the child process always prints first; can you do
+this without calling wait() in the parent?*
+
+You can achieve the same result by doing the printing before
+calling `fork()`.
