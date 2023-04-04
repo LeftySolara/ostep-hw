@@ -6,27 +6,25 @@ In this homework, you'll gain some familiarity with the process management APIs 
 
 ### Question 1
 
-Write a program that calls `fork()`. Before calling `fork()`, have the main process access a variable (e.g., `x`) and set its value to something (e.g., `100`). What value is the variable in the child process? What happens to the variable when both the child and parent change the value of `x`?
-
-#### Answer
-
-[Code](./1.c)
+**Write a program that calls `fork()`. Before calling `fork()`, have the main process access a variable (e.g., `x`) and set its value to something (e.g., `100`). What value is the variable in the child process? What happens to the variable when both the child and parent change the value of `x`?**
 
 The value of `x` in the child process is initially the same as in the parent process. Because each process has its own copy of the variable, each copy will (separately) have whatever new value is assigned to it if both the parent and child processes modify it.
 
+[Code](./1.c)
+
 ### Question 2
 
-Write a program that opens a file (with the `open()` system call) and then calls `fork()` to create a new process. Can both the child and parent access the file discriptor returned by `open()`? What happens when they are writing to the file concurrently?
-
-#### Answer
-
-[Code](./2.c)
+**Write a program that opens a file (with the `open()` system call) and then calls `fork()` to create a new process. Can both the child and parent access the file discriptor returned by `open()`? What happens when they are writing to the file concurrently?**
 
 Both the parent and child processes can access the file descriptor. When writing to the file concurrently, the child is blocked from writing until the parent is finished.
 
+[Code](./2.c)
+
 ### Question 3
 
-Write another program using `fork()`. The child process should print "hello"; the parent process should print "goodbye". You should try to ensure that the child process always prints first; can you do this _without_ calling `wait()` in the parent?
+**Write another program using `fork()`. The child process should print "hello"; the parent process should print "goodbye". You should try to ensure that the child process always prints first; can you do this _without_ calling `wait()` in the parent?**
+
+[Code](./3.c)
 
 ### Question 4
 
