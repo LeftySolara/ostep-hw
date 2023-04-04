@@ -8,9 +8,21 @@ In this homework, you'll gain some familiarity with the process management APIs 
 
 Write a program that calls `fork()`. Before calling `fork()`, have the main process access a variable (e.g., `x`) and set its value to something (e.g., `100`). What value is the variable in the child process? What happens to the variable when both the child and parent change the value of `x`?
 
+#### Answer
+
+[Code](./1.c)
+
+The value of `x` in the child process is initially the same as in the parent process. Because each process has its own copy of the variable, each copy will (separately) have whatever new value is assigned to it if both the parent and child processes modify it.
+
 ### Question 2
 
 Write a program that opens a file (with the `open()` system call) and then calls `fork()` to create a new process. Can both the child and parent access the file discriptor returned by `open()`? What happens when they are writing to the file concurrently?
+
+#### Answer
+
+[Code](./2.c)
+
+Both the parent and child processes can access the file descriptor. When writing to the file concurrently, the child is blocked from writing until the parent is finished.
 
 ### Question 3
 
