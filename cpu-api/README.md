@@ -46,6 +46,10 @@ The `wait()` function returns the PID of the child whose status changed. If `wai
 
 Write a slight modification of the previous program, this time using `waitpid()` instead of `wait()`. When would `waitpid()` be useful?
 
+`waitpid()` would be useful when we want to wait for a specific child and get extra information back about how its status changed.
+
+[Code](./6.c)
+
 ### Question 7
 
 Write a program that creates a child process, and then in the child closes standard output (`STDOUT_FILENO`). What happens if the child calls `printf()` to print some output after closing the descriptor?
