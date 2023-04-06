@@ -30,6 +30,10 @@ Both the parent and child processes can access the file descriptor. When writing
 
 Write a program that calls `fork()` and then calls some form of `exec()` to run the program `/bin/ls`. See if you can try all of the variants of `exec()`, including `execl()`, `execle()`, `execlp`, `execv`, `execvp`, and `execvpe()`. Why do you think there are so many variants of the same basic call?
 
+There are many versions of `exec()` so that it's flexible depending on what information you have. For example, some of the variants take an `envion` argument to set the program environment while others do not. This is useful when the user doesn't care about a specific environment setup.
+
+[Code](./4.c)
+
 ### Question 5
 
 Now write a program that uses `wait()` to wait for the child process to finish in the parent. What does `wait()` return? What happpens if you use `wait()` in the child?
