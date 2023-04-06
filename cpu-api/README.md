@@ -61,3 +61,5 @@ If the child calls `printf()` after closing the descriptor, then the writing doe
 ### Question 8
 
 **Write a program that creates two children, and connects the standard output of one to the standard input of the other, using the `pipe()` system call.**
+
+[Code](./8.c)
