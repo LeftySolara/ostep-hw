@@ -28,7 +28,7 @@ Both the parent and child processes can access the file descriptor. When writing
 
 ### Question 4
 
-Write a program that calls `fork()` and then calls some form of `exec()` to run the program `/bin/ls`. See if you can try all of the variants of `exec()`, including `execl()`, `execle()`, `execlp`, `execv`, `execvp`, and `execvpe()`. Why do you think there are so many variants of the same basic call?
+**Write a program that calls `fork()` and then calls some form of `exec()` to run the program `/bin/ls`. See if you can try all of the variants of `exec()`, including `execl()`, `execle()`, `execlp`, `execv`, `execvp`, and `execvpe()`. Why do you think there are so many variants of the same basic call?**
 
 There are many versions of `exec()` so that it's flexible depending on what information you have. For example, some of the variants take an `envion` argument to set the program environment while others do not. This is useful when the user doesn't care about a specific environment setup.
 
@@ -36,7 +36,7 @@ There are many versions of `exec()` so that it's flexible depending on what info
 
 ### Question 5
 
-Now write a program that uses `wait()` to wait for the child process to finish in the parent. What does `wait()` return? What happpens if you use `wait()` in the child?
+**Now write a program that uses `wait()` to wait for the child process to finish in the parent. What does `wait()` return? What happpens if you use `wait()` in the child?**
 
 The `wait()` function returns the PID of the child whose status changed. If `wait()` is used in the child process, then it waits for the parent process to complete before continuing.
 
@@ -44,7 +44,7 @@ The `wait()` function returns the PID of the child whose status changed. If `wai
 
 ### Question 6
 
-Write a slight modification of the previous program, this time using `waitpid()` instead of `wait()`. When would `waitpid()` be useful?
+**Write a slight modification of the previous program, this time using `waitpid()` instead of `wait()`. When would `waitpid()` be useful?**
 
 `waitpid()` would be useful when we want to wait for a specific child and get extra information back about how its status changed.
 
@@ -52,8 +52,12 @@ Write a slight modification of the previous program, this time using `waitpid()`
 
 ### Question 7
 
-Write a program that creates a child process, and then in the child closes standard output (`STDOUT_FILENO`). What happens if the child calls `printf()` to print some output after closing the descriptor?
+**Write a program that creates a child process, and then in the child closes standard output (`STDOUT_FILENO`). What happens if the child calls `printf()` to print some output after closing the descriptor?**
+
+If the child calls `printf()` after closing the descriptor, then the writing doesn't work and no output is displayed.
+
+[Code](./7.c)
 
 ### Question 8
 
-Write a program that creates two children, and connects the standard output of one to the standard input of the other, using the `pipe()` system call.
+**Write a program that creates two children, and connects the standard output of one to the standard input of the other, using the `pipe()` system call.**
