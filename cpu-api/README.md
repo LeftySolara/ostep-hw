@@ -38,6 +38,10 @@ There are many versions of `exec()` so that it's flexible depending on what info
 
 Now write a program that uses `wait()` to wait for the child process to finish in the parent. What does `wait()` return? What happpens if you use `wait()` in the child?
 
+The `wait()` function returns the PID of the child whose status changed. If `wait()` is used in the child process, then it waits for the parent process to complete before continuing.
+
+[Code](./5.c)
+
 ### Question 6
 
 Write a slight modification of the previous program, this time using `waitpid()` instead of `wait()`. When would `waitpid()` be useful?
