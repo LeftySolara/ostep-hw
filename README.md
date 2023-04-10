@@ -9,3 +9,5 @@ See the original author's [repo](https://github.com/remzi-arpacidusseau/ostep-ho
 ### Virtualization
 
 5. [Process API](./cpu-api)
+
+6. [Limited Direct Execution](./cpu-lde)
